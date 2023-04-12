@@ -1,0 +1,59 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>succuess</h1>
+
+
+    <div class="row">
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">name</th>
+        <th scope="col">Adres</th>
+        <th scope="col">PostCode</th>
+        <th scope="col">Size</th>
+        <th scope="col">Email</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+
+    </tr>
+    <tr>
+        {% for order in orders %}
+        <th scope="row">{{ order.first_name }}</th>
+        <td>{{ order.adres }}</td>
+        <td>{{ order.postcode }}</td>
+        <td> {{ order.size }}</td>
+
+        <td> {{ order.email }}</td>
+        <td> {{ order.last_name }}</td>
+        <td>  {{ order.pizza.name }}</td>
+        <td>  {{ order.status }}</td>
+        <td> <a href="{{ path('app_update', {id:order.id}) }}">update</a></td>
+        <td> <a href="{{ path('app_delete', {id:order.id}) }}">delete</a></td>
+
+
+
+    </tr>
+
+
+
+
+    {% endfor   %}
+
+
+    </thead>
+    <tbody>
+
+
+
+
+</table>
+
+
+{% endblock %}
